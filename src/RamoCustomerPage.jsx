@@ -165,12 +165,35 @@ export default function RamoCustomerPage() {
               className="mt-2 w-full rounded-2xl bg-[#16A34A] px-5 py-4 text-base font-semibold text-white shadow-sm"
               onClick={() => {
                 if (!name || !phone || !date || !time || !guests) {
-                  alert('未入力の項目があります');
+                  alert("未入力の項目があります");
                   return;
                 }
-
-                console.log({ name, phone, date, time, guests });
-                alert('予約を受け付けました');
+              
+                const [hour, minute] = time.split(":").map(Number);
+                const totalMinutes = hour * 60 + minute;
+                const minTime = 17 * 60;
+                const maxTime = 22 * 60 + 30;
+              
+                if (totalMinutes < minTime || totalMinutes > maxTime) {
+                  alert("予約可能時間は17:00〜22:30です");
+                  return;
+                }
+              
+                const message =
+                  `【Ramo予約申請】\n` +
+                  `お名前：${name}\n` +
+                  `電話番号：${phone}\n` +
+                  `希望日：${date}\n` +
+                  `希望時間：${time}\n` +
+                  `人数：${guests}名\n` +
+                  `特典対象：はい`;
+              
+                const encodedMessage = encodeURIComponent(message);
+              
+                window.open(
+                  `https://line.me/R/oaMessage/@728krjwb/?${encodedMessage}`,
+                  "_blank"
+                );
               }}
             >
               予約を確定する（特典対象）
