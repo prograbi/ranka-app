@@ -191,7 +191,7 @@ export default function RamoCustomerPage() {
                   const encodedMessage = encodeURIComponent(message);
 
                   window.location.href =
-                    `https://line.me/R/msg/text/?${encodedMessage}`;
+                    `https://line.me/R/oaMessage/@728krjwb/?${encodedMessage}`;
               }}
             >
               予約を確定する（特典対象）
