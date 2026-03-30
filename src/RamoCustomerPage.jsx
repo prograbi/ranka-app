@@ -188,12 +188,10 @@ export default function RamoCustomerPage() {
                   `人数：${guests}名\n` +
                   `特典対象：はい`;
               
-                const encodedMessage = encodeURIComponent(message);
-              
-                window.open(
-                  `https://line.me/R/oaMessage/@728krjwb/?${encodedMessage}`,
-                  "_blank"
-                );
+                  const encodedMessage = encodeURIComponent(message);
+
+                  window.location.href =
+                    `https://line.me/R/msg/text/?${encodedMessage}`;
               }}
             >
               予約を確定する（特典対象）
