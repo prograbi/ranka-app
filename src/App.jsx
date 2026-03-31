@@ -1,5 +1,7 @@
-import RamoCustomerPage from './RamoCustomerPage.jsx';
+import RamoCustomerPage from "./RamoCustomerPage";
 
-export default function App() {
+function App() {
   return <RamoCustomerPage />;
 }
+
+export default App;
